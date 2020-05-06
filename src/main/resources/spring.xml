@@ -11,6 +11,41 @@
     <context:component-scan base-package="springlearn"/>
 
     <!--传统标签-->
-    <bean class="springlearn.bean.Student" id="student"/>
+    <bean class="springlearn.bean.Student" id="student" lazy-init="true"/>
 
+    <!-- 这两个beanDefinition在实例化的过程中会合同成一个-->
+    <bean id="parent" class="springlearn.bean.Parent" abstract="true">
+        <property name="userName" value="spring"></property>
+    </bean>
+    <bean id="son" class="springlearn.bean.Son" parent="parent">
+        <property name="userName" value="spring"></property>
+        <property name="age" value="23"></property>
+    </bean>
+
+    <!-- 如果某个类上添加了这个(autowire-candidate=false)属性就不能依赖注入-->
+    <bean id="account" class="springlearn.bean.AccountImpl" autowire-candidate="true"></bean>
+    <bean id="user" class="springlearn.bean.UserImpl"></bean>
+
+    <!-- 这个类实例化之后调用init-method   这个类销毁的时候调用destroy-method-->
+    <bean id="women" class="springlearn.bean.Women" init-method="initMethod" destroy-method="destroyMethod"></bean>
+
+    <!--factory-bean 自己创建实例话对象 -->
+    <bean id="factoryBean" class="springlearn.bean.FactoryBean"></bean>
+    <bean id="man" class="springlearn.bean.Man" factory-bean="factoryBean" factory-method="getMan">
+        <!--表示作用-->
+        <meta key="key1" value="value1"/>
+    </bean>
+
+    <!--lookup-method 实现多态的功能 -->
+    <bean id="showSexClass" class="springlearn.bean.ShowSexClass">
+        <lookup-method bean="women" name="getWomen"></lookup-method>
+    </bean>
+
+    <!--replaced-method 对方法功能的增强 -->
+    <bean id="replaceClass" class="springlearn.bean.ReplaceClass"></bean>
+    <bean id="originClass" class="springlearn.bean.OriginClass">
+        <replaced-method name="method" replacer="replaceClass">
+            <arg-type match="String"></arg-type>
+        </replaced-method>
+    </bean>
 </beans>
