@@ -11,7 +11,9 @@
     <context:component-scan base-package="springlearn"/>
 
     <!--传统标签-->
-    <bean class="springlearn.bean.Student" id="student" lazy-init="true"/>
+    <!-- 懒加载lazy-init="true"-->
+    <!-- 父子容器合并parent="parent"-->
+    <bean class="springlearn.bean.Student" id="student" />
 
     <!-- 这两个beanDefinition在实例化的过程中会合同成一个-->
     <bean id="parent" class="springlearn.bean.Parent" abstract="true">
