@@ -13,7 +13,7 @@ public class AddInterceptor implements MethodInterceptor {
     @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("add调用前");
-        methodProxy.invoke(o,objects);
+        methodProxy.invokeSuper(o,objects);
         System.out.println("add调用后");
         return null;
     }

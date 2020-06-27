@@ -1,0 +1,14 @@
+代理(Proxy)：
+
+切面(Aspect) advisor： 一类功能的增强
+
+around方法里面的代码
+
+事务切面
+缓存切面
+日志切面
+
+
+切面里面的必要元素（advisor:） pointCut advice
+
+joinPoint拦截到的具体的某个方法
