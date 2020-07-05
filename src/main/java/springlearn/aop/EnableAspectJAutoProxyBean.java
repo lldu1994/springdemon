@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
  * 开启aop注解
  * 代替:<aop:aspectj-autoproxy/>
  */
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(exposeProxy = true)
 public class EnableAspectJAutoProxyBean {
 }

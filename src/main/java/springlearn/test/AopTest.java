@@ -24,6 +24,10 @@ public class AopTest {
     public void test1() {
         UserService userService = applicationContext.getBean(UserService.class);
 
-        userService.queryUser("lisi");
+        //userService.queryUser("lisi");
+        ///userService.addUser("add");
+        //userService.targetUser("targetUser");
+        //userService.returnUser("222");
+        userService.ThrowsAnno("333");
     }
 }
