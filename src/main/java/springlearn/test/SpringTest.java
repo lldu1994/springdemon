@@ -8,6 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import springlearn.bean.OriginClass;
+import springlearn.bean.People;
 import springlearn.bean.ShowSexClass;
 import springlearn.bean.Student;
 
@@ -27,9 +28,9 @@ public class SpringTest {
     @Test
     public void startSpring() throws IOException {
         ClassPathXmlApplicationContext cpx= new ClassPathXmlApplicationContext("spring.xml");
-        Student student = (Student)cpx.getBean("student");
-        System.out.println(student.getUsername());
-        cpx.close();
+        ShowSexClass bean = (ShowSexClass)cpx.getBean("showSexClass");
+        bean.showSex();
+        //cpx.close();
 
        /* ApplicationContext applicationContext = new AnnotationConfigApplicationContext("springlearn.bean");
         Student student = (Student) applicationContext.getBean("student");

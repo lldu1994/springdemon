@@ -10,5 +10,5 @@ public abstract class ShowSexClass {
     }
 
     //不一定是抽象方法
-    public abstract Women getWomen();
+    public abstract People getWomen();
 }

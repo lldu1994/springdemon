@@ -1,6 +1,15 @@
 package springlearn.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Son {
+
+
+    @Autowired
+    public Son( Student student){
+        System.out.println(student);
+    }
+
     private String userName;
     private String age;
 
