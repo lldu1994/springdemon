@@ -17,8 +17,8 @@ import springlearn.service.goods.GoodsService;
 import java.util.List;
 import java.util.Map;
 
-@PropertySource("classpath:config/core/core.properties")
-@Service
+//@PropertySource("classpath:config/core/core.properties")
+//@Service
 public class AreaServiceImpl implements AreaService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());

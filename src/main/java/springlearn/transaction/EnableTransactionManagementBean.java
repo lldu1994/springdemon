@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-@Component
-@EnableTransactionManagement
-@MapperScan(basePackages = "springlearn.dao", annotationClass = Repository.class)
+//@Component
+//@EnableTransactionManagement
+//@MapperScan(basePackages = "springlearn.dao", annotationClass = Repository.class)
 public class EnableTransactionManagementBean {
     @Bean
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) {

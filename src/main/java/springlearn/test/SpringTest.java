@@ -4,9 +4,11 @@ package springlearn.test;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import springlearn.aop.ComponentScanBean;
 import springlearn.bean.OriginClass;
 import springlearn.bean.ShowSexClass;
 import springlearn.bean.Student;
@@ -18,18 +20,18 @@ import java.util.ArrayList;
 @ContextConfiguration(locations = {"classpath:spring.xml"})
 public class SpringTest {
 
-    @Autowired
-    private ShowSexClass showSexClass;
+    //@Autowired
+    //private ShowSexClass showSexClass;
 
-    @Autowired
-    OriginClass originClass;
+    //@Autowired
+    //OriginClass originClass;
 
     @Test
     public void startSpring() throws IOException {
-        ClassPathXmlApplicationContext cpx= new ClassPathXmlApplicationContext("spring.xml");
-        Student student = (Student)cpx.getBean("student");
+        ClassPathXmlApplicationContext cpx = new ClassPathXmlApplicationContext("spring.xml");
+        Student student = (Student) cpx.getBean("student");
         System.out.println(student.getUsername());
-        cpx.close();
+        //cpx.close();
 
        /* ApplicationContext applicationContext = new AnnotationConfigApplicationContext("springlearn.bean");
         Student student = (Student) applicationContext.getBean("student");
@@ -37,14 +39,24 @@ public class SpringTest {
 
     }
 
+
     @Test
-    public void showSex(){
-        showSexClass.showSex();
+    public void test1() {
+        AnnotationConfigApplicationContext cpx = new AnnotationConfigApplicationContext(ComponentScanBean.class);
+        Student student = (Student) cpx.getBean("student");
+        System.out.println(student.getUsername());
+
+
     }
 
     @Test
-    public void replaceMethod(){
-        originClass.method("aaa");
-        originClass.method(new ArrayList());
+    public void showSex() {
+        //showSexClass.showSex();
+    }
+
+    @Test
+    public void replaceMethod() {
+        //originClass.method("aaa");
+        //originClass.method(new ArrayList());
     }
 }

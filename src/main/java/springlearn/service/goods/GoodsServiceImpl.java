@@ -9,7 +9,7 @@ import springlearn.pojo.ZgGoods;
 
 import java.util.List;
 
-@Service
+//@Service
 public class GoodsServiceImpl implements GoodsService {
 
     @Autowired

@@ -26,8 +26,8 @@ import java.util.Map;
 *
 * */
 
-@Configuration
-@PropertySource("classpath:config/core/core.properties")
+//Configuration
+//@PropertySource("classpath:config/core/core.properties")
 public class DataSourceConfiguration {
 
     @Value("${jdbc.driverClassName}")
@@ -42,7 +42,7 @@ public class DataSourceConfiguration {
     @Resource
     Environment environment;
 
-    @Bean
+    //@Bean
     public DataSource comboPooledDataSource() {
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         try {

@@ -5,13 +5,12 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class InstantiationAwareBeanPostProcessorDemo implements InstantiationAwareBeanPostProcessor {
 
-    @Nullable
-    public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
 
-        //为false 所有的依赖注入失效
+    @Override
+    public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         return false;
     }
 }

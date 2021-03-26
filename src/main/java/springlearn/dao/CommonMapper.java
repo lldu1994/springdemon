@@ -11,7 +11,7 @@ import springlearn.pojo.ZgTicket;
 import java.util.List;
 import java.util.Map;
 
-@Repository
+//@Repository
 public interface CommonMapper {
 
     @Select("select * from consult_configarea where areaCode=#{areaCode}")
