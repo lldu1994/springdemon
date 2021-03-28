@@ -30,7 +30,8 @@ public class SpringTest {
     public void startSpring() throws IOException {
         ClassPathXmlApplicationContext cpx = new ClassPathXmlApplicationContext("spring.xml");
         Student student = (Student) cpx.getBean("student");
-        System.out.println(student.getUsername());
+        System.out.println(student);
+        System.out.println(student.getSon());
         //cpx.close();
 
        /* ApplicationContext applicationContext = new AnnotationConfigApplicationContext("springlearn.bean");
