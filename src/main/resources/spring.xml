@@ -10,6 +10,8 @@
     <!--自定义标签-->
     <context:component-scan base-package="springlearn"/>
 
+    <!--<context:property-placeholder location="classpath:application.properties"/>-->
+
     <!--传统标签-->
     <!-- 懒加载lazy-init="true"-->
     <!-- 父子容器合并parent="parent"-->
@@ -32,22 +34,22 @@
     <bean id="women" class="springlearn.bean.Women" init-method="initMethod" destroy-method="destroyMethod"></bean>
 
     <!--factory-bean 自己创建实例话对象 -->
-    <bean id="factoryBean" class="springlearn.bean.FactoryBean"></bean>
-    <bean id="man" class="springlearn.bean.Man"  factory-method="getMan">
+    <!--<bean id="factoryBean" class="springlearn.bean.FactoryBean"></bean>-->
+    <bean id="man" class="springlearn.bean.Man"  factory-method="getMan" > <!--factory-bean="factoryBean"-->
         <!--表示作用-->
         <meta key="key1" value="value1"/>
     </bean>
 
     <!--lookup-method 实现多态的功能 -->
-    <bean id="showSexClass" class="springlearn.bean.ShowSexClass">
+    <!--<bean id="showSexClass" class="springlearn.bean.ShowSexClass">
         <lookup-method bean="women" name="getWomen"></lookup-method>
-    </bean>
+    </bean>-->
 
     <!--replaced-method 对方法功能的增强 -->
     <bean id="replaceClass" class="springlearn.bean.ReplaceClass"></bean>
     <bean id="originClass" class="springlearn.bean.OriginClass">
-        <replaced-method name="method" replacer="replaceClass">
+       <!-- <replaced-method name="method" replacer="replaceClass">
             <arg-type match="String"></arg-type>
-        </replaced-method>
+        </replaced-method>-->
     </bean>
 </beans>
