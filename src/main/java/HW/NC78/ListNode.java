@@ -1,11 +1,11 @@
 package HW.NC78;
 
 public class ListNode {
-    int val;
+    public int val;
 
-    ListNode next = null;
+    public ListNode next = null;
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 }

@@ -33,14 +33,20 @@ public class Solution {
         node1.next = node2;
         node2.next = node3;
         node3.next = node4;
-        ListNode listNode = ReverseList1(node1);
+        //ListNode listNode = ReverseList2(node1);
+        /*while (listNode != null) {
+            log.info("next=====>{}", listNode.val);
+            listNode = listNode.next;
+        }*/
+        ListNode node5 = new ListNode(1);
+        node5.next = node4;
+
+        ListNode node6 = new ListNode(2);
+        ListNode listNode = mergeTwoLists(node5, node6);
         while (listNode != null) {
             log.info("next=====>{}", listNode.val);
             listNode = listNode.next;
         }
-        ListNode node5 = new ListNode(1);
-        ListNode node6 = new ListNode(2);
-        mergeTwoLists(node5,node6);
 
     }
 
@@ -63,38 +69,57 @@ public class Solution {
         return head;
     }
 
-    public static ListNode mergeTwoLists (ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         // write code here
-        if(l1==null){
+        if (l1 == null) {
             return l2;
         }
-        if(l2==null){
+        if (l2 == null) {
             return l1;
         }
         ListNode mergeNode = new ListNode(0);
-        ListNode p =mergeNode;
-        while(l1!=null && l2!=null){
-            if(l1.val<= l2.val){
-                p.next =l1;
-                p= p.next;
-                l1 =l1.next;
-            }else{
-                p.next =l2;
-                p=p.next;
-                l2=l2.next;
+        ListNode p = mergeNode;
+        while (l1 != null && l2 != null) {
+            if (l1.val <= l2.val) {
+                p.next = l1;
+                p = p.next;
+                l1 = l1.next;
+            } else {
+                p.next = l2;
+                p = p.next;
+                l2 = l2.next;
             }
         }
-        if(l1!=null){
-            p.next =l1;
+        if (l1 != null) {
+            p.next = l1;
         }
 
-        if(l2!=null){
-            p.next =l2;
+        if (l2 != null) {
+            p.next = l2;
         }
 
         return mergeNode.next;
     }
 
+
+    //输入一个链表，反转链表后，输出新链表的表头
+    public static ListNode ReverseList2(ListNode head) {
+        if (head == null) {
+            return head;
+        }
+        ListNode preNode = null;
+        ListNode nextNode = null;
+
+        while (head.next != null) {
+            nextNode = head.next;
+            head.next = preNode;
+            preNode = head;
+            head = nextNode;
+        }
+        head.next = preNode;
+
+        return head;
+    }
 
 
 }
